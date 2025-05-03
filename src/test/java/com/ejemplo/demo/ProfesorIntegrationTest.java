@@ -28,4 +28,15 @@ public class ProfesorIntegrationTest {
 		assertNotNull(response.getBody());
 		assertTrue(response.getBody().length > 0);
 	}
+
+	@Test
+	void deberiaObtenerProfesorPorId() {
+		ResponseEntity<Profesor> response =
+				restTemplate.getForEntity("http://localhost:" + port + "/profesores/1", Profesor.class);
+
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertNotNull(response.getBody());
+		assertEquals(1L, response.getBody().getId());
+		assertEquals("Juan Pérez", response.getBody().getNombre());
+	}
 }
