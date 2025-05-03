@@ -9,7 +9,7 @@ pipeline {
                 sh 'mvn clean install -DskipTests'
             }
         }
-        stage('Pruebas de Integración') {
+        stage('Pruebas Usando Jenkins') {
             steps {
                 sh 'mvn test'
             }
